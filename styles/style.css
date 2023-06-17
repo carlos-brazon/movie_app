@@ -9,10 +9,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.flex{
+.flex {
     display: flex;
 }
-body{
+
+body {
+    width: 100%;
+    height: 100%;
     padding-top: 68px;
     /* padding-top: 50px; */
     background-color: rgb(246, 252, 255);
@@ -21,22 +24,24 @@ body{
 
 
 header {
-    width: 1280px;
+    width: 100%;
     background-color: #1F1815;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     padding: 14px 40px;
     position: fixed;
     top: 0;
     /* z-index: 2; */
     gap: 24px;
 }
-input{
+
+input {
     border-radius: 5px;
     border: none;
     padding: 5px;
     color: black;
 }
+
 ul {
     justify-content: center;
     gap: 24px;
@@ -64,51 +69,90 @@ nav li>a:hover {
     background-size: contain;
 }
 
-.favourites>a{
+.favourites>a {
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 8px;
 }
-.favourites>a>p{
-    background-color: blue;
+
+.favourites>a>p {
+    background-color: rgb(85, 85, 128);
     color: var(--white);
     align-items: center;
     justify-content: center;
-    border-radius:50px;
+    border-radius: 50px;
     width: 24px;
     height: 24px;
+    text-align: center;
 }
 
 
-section{
-width: 1200px;
-align-items: center;
-justify-content: center;
-flex-wrap: wrap;
-padding: 20px;
-gap: 12px;
+
+
+
+section {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 19px;
 }
 
 .films {
-    width: 260px;
+    width: 280px;
+    height: 500px;
     border: 1px solid red;
     border-radius: 15px;
     align-items: center;
     flex-direction: column;
     gap: 12px;
     padding: 12px;
-    background-color: rgb(94, 96, 97) ;
+    background-color: rgb(94, 96, 97);
 }
-.films> p, span{
+
+.films>p,
+span {
     border-radius: 50px;
     background-color: darkgrey;
     padding: 5px;
 }
-.divImg{
+
+.divImg {
     width: 250px;
     height: 400px;
     background-size: 250px;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+
+
+
+
+.movie {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 19px;
+}
+
+.oneFilm {
+    width: 600px;
+    height: auto;
+    border: 1px solid red;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: rgb(94, 96, 97);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+
 }
