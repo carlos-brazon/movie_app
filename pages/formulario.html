@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Favourites</title>
+    <title>Formulario</title>
 </head>
 <body>
     <header class="flex">
@@ -14,6 +13,7 @@
         </form>
                <ul class="flex">
                    <li><a href="../index.html">Home</a></li>
+                   <li><a href="./formulario.html">formulario</a></li>
                </ul>
            </nav>
          
@@ -24,14 +24,17 @@
                </a>
            </div>
        </header>
-        
-       <section class="flex">
-           <!-- <div class="films flex">
-           <p>carlos</p>
-           <span>Brazon</span>
-           </div> -->
-       </section>
+    <form id="form2">
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo de la pelicula">
+        <input type="text" name="url" id="url" placeholder="url de la pelicula">
+        <input type="text" name="año" id="año" placeholder="Año de estreno">
+        <input type="text" name="tiempo" id="tiempo" placeholder="Tiempo de duracion de la pelicula">
+        <input type="text" name="director" id="director" placeholder="Director">
+        <input type="text" name="sinopsis" id="sinopsis" placeholder="Sinopsis">
+        <input type="submit"></input>
+    </form>
 
-    <script src="../js/favourites.js" type="module"></script>
+    
+    <script type="module" src="../js/formulario.js"></script>
 </body>
 </html>

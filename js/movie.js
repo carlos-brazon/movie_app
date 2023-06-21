@@ -3,35 +3,33 @@ const x = window.location.search;
 const y = new URLSearchParams(x);
 const id = y.get('id');
 console.log(id);
-let urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=156de9a632e94cfb9b9a113793c69ef8&language=en-ES`;
+const star = document.querySelector('.fa-star');
+let urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=156de9a632e94cfb9b9a113793c69ef8&language=es-ES&append_to_response=credits`;
 const counterHeader = document.querySelectorAll('.p-small');
 const data = JSON.parse(localStorage.getItem('data')) || [];
 counterHeader[0].innerHTML= data.length;
 
 const inicial = async () => {
     
-    const film = await getArrayFilms(urlId);
-    console.log(film);
-    printOneFilm(film);
-    
-    const button = document.querySelector('button');
-    button.addEventListener('click', async (event) =>{
-        const data = JSON.parse(localStorage.getItem('data')) || [];
+    const movie = await getArrayFilms(urlId);
+    console.log(movie);
+    await printOneFilm(movie);
+
+    const repeatMovie = data.find(movie => movie.id==id);
+    if (repeatMovie) {
+        const oneFilm = document.querySelector('.oneFilm');
+        const star = document.querySelector('.oneFilm .fa-star');
+        star.classList='fa-solid fa-star'
+        star.style.color='rgba(34, 255, 0, 0.5)'
+        oneFilm.style.boxShadow="0px 0px 15px rgb(34, 255, 0)";
         
-        console.log(data);
+        oneFilm.style.transition= "0.5s";
         
-        const repeatMovie = data.find(movie => movie.id==id);
-        if (repeatMovie) {
-            console.log('si es igual el id');
-            window.alert('La pelicula ya se encuentra en favoritos')
-        } else {
-            const filmData = {
-                id: id
-            }
-            data.push(filmData);
-            localStorage.setItem("data", JSON.stringify(data));
-        };
-        counterHeader[0].innerHTML= data.length;
-    });
+    } else {
+        const star = document.querySelector('.oneFilm .fa-star');
+        star.classList='fa-regular fa-star'
+        const oneFilm = document.querySelector('.oneFilm');
+        oneFilm.style.boxShadow="0px 0px 20px rgb(153, 80, 80)";
+    }
 }
 inicial();
