@@ -7,25 +7,23 @@ const data = JSON.parse(localStorage.getItem('data')) || [];
 
 const arrayFromAppi = await arrayNewMovies(data);
 const movies = JSON.parse(localStorage.getItem('movies')) || [];
-console.log(movies)
 movies.forEach(element => {
     arrayFromAppi.unshift(element)
 });
 
 counterHeader.innerHTML = arrayFromAppi.length;
-console.log(arrayFromAppi);
 printFilmsFavourites(arrayFromAppi);
 
-
+    
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
     let value = input.value;
-    const resultInpunSearch = (await arrayNewMovies(data)).filter(movie => (movie.title).toLowerCase().includes(value.toLowerCase()));
+    const results = (await arrayNewMovies(data));
     const movies = JSON.parse(localStorage.getItem('movies'));
-    console.log(movies);
     movies.forEach(element => {
-        resultInpunSearch.unshift(element);
+        results.unshift(element);
     });
-    console.log(resultInpunSearch);
+    
+    const resultInpunSearch = results.filter(movie => (movie.title).toLowerCase().includes(value.toLowerCase()));
     printFilmsFavourites(resultInpunSearch);
 });

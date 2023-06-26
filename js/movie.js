@@ -1,35 +1,30 @@
-import { getArrayFilms, printOneFilm } from "../utils/util.js";
+import { eventoClickStar, getArrayFilms, printOneFilm } from "../utils/util.js";
 const x = window.location.search;
 const y = new URLSearchParams(x);
 const id = y.get('id');
-console.log(id);
-const star = document.querySelector('.fa-star');
-let urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=156de9a632e94cfb9b9a113793c69ef8&language=es-ES&append_to_response=credits`;
+let urlId = `https://api.themoviedb.org/3/movie/${id}?api_key=156de9a632e94cfb9b9a113793c69ef8&language=es-ES&append_to_response=credits&append_to_response=videos`;
 const counterHeader = document.querySelectorAll('.p-small');
 const data = JSON.parse(localStorage.getItem('data')) || [];
-counterHeader[0].innerHTML= data.length;
+const movies = JSON.parse(localStorage.getItem('movies')) || [];
+
+counterHeader[0].innerHTML= data.length+ movies.length;
 
 const inicial = async () => {
-    
     const movie = await getArrayFilms(urlId);
-    console.log(movie);
-    await printOneFilm(movie);
 
-    const repeatMovie = data.find(movie => movie.id==id);
-    if (repeatMovie) {
-        const oneFilm = document.querySelector('.oneFilm');
-        const star = document.querySelector('.oneFilm .fa-star');
-        star.classList='fa-solid fa-star'
-        star.style.color='rgba(34, 255, 0, 0.5)'
-        oneFilm.style.boxShadow="0px 0px 15px rgb(34, 255, 0)";
-        
-        oneFilm.style.transition= "0.5s";
-        
-    } else {
-        const star = document.querySelector('.oneFilm .fa-star');
-        star.classList='fa-regular fa-star'
-        const oneFilm = document.querySelector('.oneFilm');
-        oneFilm.style.boxShadow="0px 0px 20px rgb(153, 80, 80)";
+        if (movie.success == undefined) {
+            await printOneFilm(movie, id);
+        }
+        if (movie.success ===false ){
+            const movieInF= movies.find(movie => movie.id ==id);
+            if (movieInF) {
+                await printOneFilm(movieInF, id);
+            }
+            else {
+                const movies3 = JSON.parse(localStorage.getItem('movies3')) || [];
+                const movieOutF= movies3.find(movie => movie.id ==id);
+                await printOneFilm(movieOutF, id);
+            }
+        }
     }
-}
 inicial();

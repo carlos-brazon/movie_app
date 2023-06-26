@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a la sección de crear películas</title>
     <link rel="stylesheet" href="../styles/style.css">
-    <title>Formulario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Create movie</title>
 </head>
-<body>
-    <header class="flex">
-        <form action="#">
-           <input type="text" name="buscador" id="buscadorPelicula" placeholder="Search Movie">
-        </form>
-               <ul class="flex">
-                   <li><a href="../index.html">Home</a></li>
-                   <li><a href="./formulario.html">formulario</a></li>
-               </ul>
-           </nav>
-         
-           <div class="favourites flex">
-               <a href="./favourites.html" class="flex">
-                   <i class="fa-sharp fa-regular fa-star"></i>
-                   <p class="p-small flex"></p>
-               </a>
-           </div>
-       </header>
-    <form id="form2">
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo de la pelicula">
-        <input type="text" name="url" id="url" placeholder="url de la pelicula">
-        <input type="text" name="año" id="año" placeholder="Año de estreno">
-        <input type="text" name="tiempo" id="tiempo" placeholder="Tiempo de duracion de la pelicula">
-        <input type="text" name="director" id="director" placeholder="Director">
-        <input type="text" name="sinopsis" id="sinopsis" placeholder="Sinopsis">
-        <input type="submit"></input>
-    </form>
 
+<body class="flex">
+    <header class="flex">
+        <img src="../assets/Captura de pantalla 2023-06-26 164918.png" alt="">
+        <form action="#">
+            <input type="text" name="buscador" id="buscadorPelicula" placeholder="Search Movie">
+        </form>
+        <ul class="flex">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./formulario.html">Create movie</a></li>
+            <li><a href="./favourites.html">Favourites</a></li>
+        </ul>
+        </nav>
+
+        <div class="favourites flex">
+            <a href="./favourites.html" class="flex">
+                <i class="fa-sharp fa-regular fa-star"></i>
+                <p class="p-small flex"></p>
+            </a>
+        </div>
+    </header>
+    <div class="grande">
+        
+        <div class="video">
+            <iframe width="100%" height="1000px" src="https://www.youtube.com/embed/ncsFc2fBz8s?autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>           
+        </div>
+        
+        <div class="contain flex">
+            <h1 id="mensaje"></h1>
+            
+            <form id="form2" class="flex">
+                <input type="text" name="titulo" id="titulo" placeholder="Titulo de la pelicula" required>
+                <input type="text" name="url" id="url" placeholder="url de la pelicula" required>
+                <input type="text" name="año" id="año" placeholder="Año de estreno" required>
+                <input type="text" name="tiempo" id="tiempo" placeholder="Tiempo de duracion de la pelicula" required>
+                <input type="text" name="director" id="director" placeholder="Director" required>
+                <input type="text" name="sinopsis" id="sinopsis" placeholder="Sinopsis" required>
+                <input type="submit" value="Create movie"></input>
+            </form>
+            <span class="mensaje"></span>
+        </div>
+        
+        
+    </div>
+        <script type="module" src="../js/formulario.js"></script>
+    </body>
     
-    <script type="module" src="../js/formulario.js"></script>
-</body>
-</html>
+    </html>
