@@ -32,7 +32,7 @@ buttonMoreLess.forEach(element => {
         setTimeout(function() {
             element.classList.remove("clicked");
             element.classList.remove("noclicked");
-          }, 300);
+          }, 200);
         const array = await sumaPopularMoviesandCreatedMovies(number);
         printFilms(array.arrayPopularMovies, array.popularMoviesFromApi, array.movies3);
     });
